@@ -72,3 +72,7 @@ This project is designed for individuals preparing for roles such as **Business 
 
 This project is released under the MIT License. Feel free to use and adapt it for your own learning and portfolio projects.
 
+## Additional Notes
+
+This update demonstrates how to create a branch and open a pull request on GitHub.
+
