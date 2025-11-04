@@ -1,0 +1,6 @@
+data_path: data/resource_utilization.csv
+target: overallocated
+model_path: models/model.joblib
+metrics_path: reports/metrics.json
+test_size: 0.2
+random_state: 42
