@@ -33,3 +33,10 @@ python src/predict.py --input data/sample_input.csv
 ```bash
 pytest tests/
 ```
+
+## Next Steps
+
+Deploy Streamlit dashboard for business self-service.
+
+---
+*Analytics portfolio project — 2025-11*
