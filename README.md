@@ -40,3 +40,5 @@ Deploy Streamlit dashboard for business self-service.
 
 ---
 *Analytics portfolio project — 2025-11*
+
+<!-- build 8 -->
