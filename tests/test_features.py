@@ -1,10 +1,8 @@
-import sys
-from pathlib import Path
+"""Tests for feature engineering."""
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from features import FEATURE_COLUMNS, prepare_features
+from features import FEATURE_COLUMNS, TARGET, prepare_features
 
 
 def test_prepare_features_shape():
@@ -13,3 +11,9 @@ def test_prepare_features_shape():
     assert X.shape[0] == len(df)
     assert len(y) == len(df)
     assert list(X.columns) == FEATURE_COLUMNS
+
+
+def test_target_not_in_feature_matrix():
+    df = pd.read_csv("data/resource_utilization.csv")
+    X, _ = prepare_features(df)
+    assert TARGET not in X.columns
