@@ -55,6 +55,12 @@ Deploy Streamlit dashboard for business self-service.
 
 <!-- build 8 -->
 
+## Live Demo
+
+**[Open app](https://project-management-analytics-portfolio-dibeart8u2vuibpyjbcjc3.streamlit.app/)** — Streamlit Community Cloud
+
+Local run: `streamlit run app/streamlit_app.py`
+
 ### Implemented
 
 ```bash
