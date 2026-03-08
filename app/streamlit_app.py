@@ -98,14 +98,28 @@ with tab_predict:
 
         result = filtered.copy()
         result["predicted_over"] = preds
-        result["p_overallocated"] = proba
+        result["p_overallocated"] = proba.astype(float)
 
-        heat = result.pivot_table(
-            values="p_overallocated", index=pd.cut(result["billable_hours"], bins=8),
-            columns=pd.cut(result["bench_time"], bins=8), aggfunc="mean",
+        result["billable_bin"] = pd.cut(result["billable_hours"], bins=8).astype(str)
+        result["bench_bin"] = pd.cut(result["bench_time"], bins=8).astype(str)
+        heat = (
+            result.pivot_table(
+                values="p_overallocated", index="billable_bin", columns="bench_bin", aggfunc="mean",
+            )
+            .fillna(0.0)
+            .astype(float)
         )
-        fig_heat = px.imshow(heat, title="Overload probability heatmap (billable × bench)", color_continuous_scale="YlOrRd")
-        st.plotly_chart(fig_heat, use_container_width=True)
+        if heat.empty:
+            st.info("Not enough data for heatmap with current filters.")
+        else:
+            fig_heat = px.imshow(
+                heat,
+                labels=dict(x="Bench time band", y="Billable hours band", color="P(overload)"),
+                title="Overload probability heatmap (billable × bench)",
+                color_continuous_scale="YlOrRd",
+                aspect="auto",
+            )
+            st.plotly_chart(fig_heat, use_container_width=True)
 
         sel = st.selectbox("Inspect resource", result["resource_id"].astype(str).tolist())
         row = result[result["resource_id"].astype(str) == sel].iloc[0]
