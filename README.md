@@ -40,26 +40,15 @@ pytest tests/ --cov=src
 python src/train.py
 python src/predict.py --input data/sample_input.csv
 ```
-## Tests
-
-```bash
-pytest tests/
-```
-
 ## Next Steps
 
-Deploy Streamlit dashboard for business self-service.
+**Done.** Streamlit dashboard is implemented — see ### Implemented and Live Demo below.
 
 ---
 *Analytics portfolio project — 2025-11*
 
 <!-- build 8 -->
 
-## Live Demo
-
-**[Open app](https://project-management-analytics-portfolio-dibeart8u2vuibpyjbcjc3.streamlit.app/)** — Streamlit Community Cloud
-
-Local run: `streamlit run app/streamlit_app.py`
 
 ### Implemented
 
@@ -67,3 +56,11 @@ Local run: `streamlit run app/streamlit_app.py`
 pip install -r requirements.txt
 streamlit run app/streamlit_app.py
 ```
+
+
+## Live Demo
+
+**[Open app](https://project-management-analytics-portfolio-dibeart8u2vuibpyjbcjc3.streamlit.app/)** — Streamlit Community Cloud
+
+Local run: `streamlit run app/streamlit_app.py`
+
